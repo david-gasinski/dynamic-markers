@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- custom -->
+    <style>
+        #map {
+            height: 100vh;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map">
+    </div>
+    <script>
+        const lon = 51.505
+        const lat = -0.09
+
+        var map = L.map('map').setView([lon, lat], 17);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+
+        function addMarker(lon, lat) {
+            var marker = L.marker([lon, lat]).addTo(map);
+        }
+
+        addMarker(51.508, -0.11)
+
+    </script>
+</body>
+
+</html>
